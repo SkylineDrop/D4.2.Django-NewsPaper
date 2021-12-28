@@ -9,5 +9,5 @@ class PostList(ListView):
 
 class PostDetail(DetailView):
     model = Post
-    template_name = 'definite_news.html' 
-    context_object_name = 'definite_news'
+    template_name = 'current_news.html' 
+    context_object_name = 'current_news'

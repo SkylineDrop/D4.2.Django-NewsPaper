@@ -1,8 +1,17 @@
-{% extends 'flatpages/default.html' %} 
+{% extends './default.html' %} 
  
 {% block title %}News{% endblock title %}
  
 {% block content %}
-<h1>Все новости</h1>
-{{ news }}
+    <h1>Все новости</h1>
+    <h2>Новостей: {{  news|length }}</h2>
+    <table>
+        {% for x in news %}
+        <tr>
+            <td>{{ x.header }}</td>
+            <td>{{ x.created_at|date:'d M Y' }}</td>
+            <td>{{ x.content|truncatewords:20 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% endblock content %}

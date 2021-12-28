@@ -50,6 +50,9 @@ class Post(models.Model, RatingMixin):
     def preview(self):
         return self.content[:124] + "..."
 
+    def __str__(self):
+        return f'{self.header.title()}: {self.content[:40]}'
+
 class PostCategory(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
