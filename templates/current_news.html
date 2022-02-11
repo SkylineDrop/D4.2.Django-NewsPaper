@@ -3,5 +3,7 @@
 {% block title %}News{% endblock title %}
  
 {% block content %}
-<h1>{{ current_news }}</h1>
+<h1>{{ current_news.header }}</h1>
+<h2>Дата публикации: {{ current_news.created_at|date:'d M Y' }}</h2>
+<p>{{ current_news.content }}</p>
 {% endblock content %}
