@@ -1,4 +1,6 @@
-{% extends './default.html' %} 
+{% extends './default.html' %}
+
+{% load custom_filters %}
  
 {% block title %}News{% endblock title %}
  
@@ -8,9 +10,9 @@
     <table>
         {% for x in news %}
         <tr>
-            <td>{{ x.header }}</td>
+            <td>{{ x.header|censor }}</td>
             <td>{{ x.created_at|date:'d M Y' }}</td>
-            <td>{{ x.content|truncatewords:20 }}</td>
+            <td>{{ x.content|truncatewords:20|censor }}</td>
         </tr>
         {% endfor %}
     </table>

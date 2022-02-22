@@ -6,6 +6,7 @@ class PostList(ListView):
     model = Post
     template_name = 'news.html' 
     context_object_name = 'news'
+    ordering = ['created_at']
 
 class PostDetail(DetailView):
     model = Post
