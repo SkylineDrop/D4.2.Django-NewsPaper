@@ -16,12 +16,12 @@ class PostDetail(DetailView):
     template_name = 'current_news.html' 
     context_object_name = 'current_news'
 
-class Postlist(ListView):
+class PostSearch(ListView):
     model = Post
     template_name = 'news_search.html' 
     context_object_name = 'news'
     ordering = ['created_at']
-    paginate_by = 1
+    paginate_by = 2
 
     def get_context_data(self, **kwargs): # забираем отфильтрованные объекты переопределяя метод get_context_data у наследуемого класса (привет, полиморфизм, мы скучали!!!)
         context = super().get_context_data(**kwargs)
